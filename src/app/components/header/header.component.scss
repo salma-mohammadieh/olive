@@ -1,0 +1,13 @@
+@import "../../../colors.scss";
+.mat-toolbar {
+  background: $white_background_color;
+  border-bottom: 0.031rem solid #c4c4c4;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  img {
+    padding: 0rem 1.5rem;
+  }
+}

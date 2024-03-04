@@ -1,0 +1,20 @@
+@import "../../../breakpoints.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 7.5rem 0 0 7.5rem;
+  .image-container {
+    display: block;
+  }
+
+  @include tablet-breakpoint {
+    margin: 1rem;
+    justify-content: center;
+
+    .image-container {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<mat-toolbar role="toolbar">
+  <div class="container">
+    <button
+      mat-icon-button
+      [ngStyle]="{ display: screenWidth > 768 ? 'none' : 'block' }"
+      (click)="onToggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img
+      src="../../../assets/images/oliveLogo.png"
+      alt="olive logo"
+      class="logo"
+    />
+  </div>
+
+  <div *ngIf="isLoggedIn$ | async">
+    <app-account-dropdown></app-account-dropdown>
+  </div>
+</mat-toolbar>

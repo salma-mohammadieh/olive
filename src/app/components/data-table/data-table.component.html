@@ -1,0 +1,52 @@
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container
+      *ngFor="let column of columns; let i = index"
+      matColumnDef="{{ column }}"
+    >
+      <!-- For columns other than 'edit' and 'status' -->
+      <ng-container
+        *ngIf="column !== 'edit' && column !== 'status'; else editOrstatus"
+      >
+        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+      </ng-container>
+
+      <!-- Edit and Status fields -->
+      <ng-template #editOrstatus>
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" [ngSwitch]="column">
+          <span
+            *ngSwitchCase="'edit'"
+            [routerLink]="'editcompany/' + element.id"
+            style="cursor: pointer"
+          >
+            <img src="../../../assets/images/editIcon.svg" />
+          </span>
+          <span *ngSwitchCase="'status'">
+            <div
+              class="status-pill"
+              [ngClass]="element[column] ? 'active' : 'inactive'"
+            >
+              <mat-icon></mat-icon>
+              {{ element[column] ? "Active" : "Inactive" }}
+            </div>
+          </span>
+        </td>
+      </ng-template>
+    </ng-container>
+
+    <!-- Header and row definitions -->
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <mat-paginator
+    hidePageSize="true"
+    [pageSize]="10"
+    aria-label="table paginator"
+    [pageIndex]="currentPage"
+    (page)="handlePageEvent($event)"
+  ></mat-paginator>
+</div>

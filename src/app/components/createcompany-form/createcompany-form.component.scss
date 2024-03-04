@@ -1,0 +1,75 @@
+@import "../../../colors.scss";
+@import "../../../breakpoints.scss";
+
+.form-field-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  align-items: center;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+
+  label {
+    color: $secondary_font_color;
+    font-weight: 700;
+    min-width: 7.5rem;
+  }
+  mat-form-field {
+    flex-grow: 1;
+  }
+}
+.logo-container {
+  border: 0.2rem solid transparent;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(254.27deg, #d1ec3f 0%, #5affdd 100%);
+  border-radius: 3rem;
+  cursor: pointer;
+  height: 6rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  width: 20rem;
+}
+
+.logo {
+  display: none;
+}
+.form-footer-container {
+  display: flex;
+
+  button {
+    align-self: flex-end;
+  }
+
+  @include tablet-breakpoint {
+    flex-direction: column;
+    button {
+      align-self: center;
+      width: 100%;
+    }
+  }
+}
+.editing-fields-container {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+
+  .input-container:last-child {
+    margin-left: 1rem;
+    label {
+      min-width: 3rem;
+    }
+  }
+  @include desktop-breakpoint {
+    flex-direction: column;
+    .input-container:last-child {
+      margin-left: 0;
+      label {
+        min-width: 7.5rem;
+      }
+    }
+  }
+}

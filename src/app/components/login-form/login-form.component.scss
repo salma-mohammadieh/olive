@@ -1,0 +1,17 @@
+@import "../../../breakpoints.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 1rem;
+  }
+}
+
+.mat-mdc-form-field {
+  width: 20rem;
+  @include tablet-breakpoint {
+    width: 100%;
+  }
+}

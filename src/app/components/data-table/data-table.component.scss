@@ -1,0 +1,37 @@
+@import "../../../colors.scss";
+@import "../../../breakpoints.scss";
+
+table {
+  width: 100%;
+  min-width: min-content;
+}
+
+.mat-mdc-paginator {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-mdc-header-cell {
+  color: secondary_font_color;
+}
+
+.status-pill {
+  border-radius: 2rem;
+  border: 2px solid;
+  padding: 0.2rem;
+  max-width: 7rem;
+
+  @include tablet-breakpoint {
+    max-width: 12vw;
+  }
+  @include mobile-breakpoint {
+    max-width: 40vw;
+  }
+}
+
+.active {
+  border-color: $primary_color;
+}
+.inactive {
+  border-color: $warn_color;
+}

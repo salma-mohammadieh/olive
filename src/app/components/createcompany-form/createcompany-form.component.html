@@ -1,0 +1,140 @@
+<form
+  [formGroup]="companyForm"
+  class="form-field-container"
+  (ngSubmit)="formSubmit()"
+>
+  <div class="input-container">
+    <label for="companyname">Company Name</label>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        formControlName="companyName"
+        type="text"
+        name="companyname"
+        id="companyname"
+      />
+      <mat-error
+        *ngIf="
+          (companyForm.get('companyName').touched &&
+            companyForm.get('companyName').errors?.required) ||
+          (companyForm.get('companyName').invalid &&
+            companyForm.get('companyName').errors?.required)
+        "
+      >
+        <mat-icon matPrefix>error</mat-icon>
+        Company name is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <label for="companyemail">Company Email</label>
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>email</mat-icon>
+      <input
+        matInput
+        formControlName="companyEmail"
+        type="email"
+        name="companyemail"
+        id="companyemail"
+      />
+      <mat-error
+        *ngIf="
+          (companyForm.get('companyEmail').touched &&
+            companyForm.get('companyEmail').errors?.required) ||
+          (companyForm.get('companyEmail').invalid &&
+            companyForm.get('companyEmail').errors?.required)
+        "
+      >
+        <mat-icon matPrefix>error</mat-icon>
+        company email is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="editing-fields-container" *ngIf="isEditing">
+    <div class="input-container">
+      <label for="companytype">Industry</label>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="companyType"
+          type="text"
+          name="companytype"
+          id="companytype"
+        />
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <label>Country</label>
+      <mat-form-field appearance="outline">
+        <mat-select [(value)]="companyCountry" formControlName="companyCountry">
+          @for (country of countries; track country) {
+          <mat-option [value]="country">{{ country }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="input-container">
+    <label for="adminname">Admin Name</label>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        formControlName="adminName"
+        type="text"
+        name="adminname"
+        id="adminname"
+      />
+      <mat-error
+        *ngIf="
+          (companyForm.get('adminName').touched &&
+            companyForm.get('adminName').errors?.required) ||
+          (companyForm.get('adminName').invalid &&
+            companyForm.get('adminName').errors?.required)
+        "
+      >
+        <mat-icon matPrefix>error</mat-icon>
+        admin name is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <label for="adminemail">Admin Email</label>
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>email</mat-icon>
+      <input
+        matInput
+        formControlName="adminEmail"
+        type="email"
+        name="adminemail"
+        id="adminemail"
+      />
+      <mat-error
+        *ngIf="
+          (companyForm.get('adminEmail').touched &&
+            companyForm.get('adminEmail').errors?.required) ||
+          (companyForm.get('adminEmail').invalid &&
+            companyForm.get('adminEmail').errors?.required)
+        "
+      >
+        <mat-icon matPrefix>error</mat-icon>
+        admin email is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-error *ngIf="error">
+    {{ error }}
+  </mat-error>
+  <div class="form-footer-container">
+    <div class="logo-container" (click)="fileInput.click()">
+      <input
+        type="file"
+        #fileInput
+        accept="image/png, image/jpeg"
+        class="logo"
+        (change)="handleFileInput($event)"
+      />
+      Upload company logo
+    </div>
+    <button mat-fab extended color="primary" type="submit">Save</button>
+  </div>
+</form>

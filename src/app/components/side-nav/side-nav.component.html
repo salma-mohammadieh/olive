@@ -1,0 +1,5 @@
+<mat-nav-list *ngFor="let data of sideNavData; let i = index">
+  <mat-list-item [routerLink]="data.route" routerLinkActive="active">{{
+    data.name
+  }}</mat-list-item>
+</mat-nav-list>

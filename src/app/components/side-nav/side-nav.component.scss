@@ -1,0 +1,5 @@
+@import "../../../colors.scss";
+
+.active {
+  border-left: 0.25rem solid $primary_color;
+}

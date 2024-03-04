@@ -1,0 +1,9 @@
+<div class="account-dropdown-container">
+  <button mat-button [matMenuTriggerFor]="menu">
+    {{ user.userData?.name || "user" }}
+  </button>
+  <mat-icon matSuffix>account_circle</mat-icon>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</div>

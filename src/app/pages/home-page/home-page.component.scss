@@ -1,0 +1,13 @@
+@import "../../../colors.scss";
+
+.drawer-container {
+  height: 100dvh;
+}
+
+.main-container {
+  background-color: $white_background_color;
+  padding: 4rem 2rem;
+}
+.side-nav-container {
+  padding: 1rem;
+}

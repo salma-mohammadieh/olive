@@ -1,0 +1,14 @@
+<div class="header-container">
+  <h1>Companies</h1>
+  <button mat-fab extended color="primary" routerLink="createcompany">
+    {{ addButtonText }}
+  </button>
+</div>
+<div class="search-container">
+  <app-search (didSearch)="handleSearch($event)"></app-search>
+</div>
+<app-data-table
+  [dataSource]="Companies_Data"
+  [columns]="columns"
+  (pagination)="handlePagination($event)"
+></app-data-table>
